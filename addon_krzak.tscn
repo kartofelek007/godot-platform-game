@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0rahkyjukdm2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cm0le"]
+load_path = "res://.godot/imported/Decors.png-25c85b0d2ddb5ef894886e3d761eb150.ctex"
+
+[node name="Krzak" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -8)
+texture = SubResource("CompressedTexture2D_cm0le")
+region_enabled = true
+region_rect = Rect2(114, 96, 35, 16)

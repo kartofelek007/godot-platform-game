@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytajfl60mplu"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rahp2"]
+load_path = "res://.godot/imported/Decors.png-25c85b0d2ddb5ef894886e3d761eb150.ctex"
+
+[node name="Rock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
+texture = SubResource("CompressedTexture2D_rahp2")
+region_enabled = true
+region_rect = Rect2(177, 92, 27, 20)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://14jcd6ojvn1j"
-path="res://.godot/imported/Tileset.png-8b57c3b721721080420dc0358d85e828.ctex"
+uid="uid://bj8k0phlcfslw"
+path="res://.godot/imported/Checkpoint (Flag Out) (64x64).png-bc9c6f1a86a7c701c9110ef13a73b464.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tileset.png"
-dest_files=["res://.godot/imported/Tileset.png-8b57c3b721721080420dc0358d85e828.ctex"]
+source_file="res://Checkpoint (Flag Out) (64x64).png"
+dest_files=["res://.godot/imported/Checkpoint (Flag Out) (64x64).png-bc9c6f1a86a7c701c9110ef13a73b464.ctex"]
 
 [params]
 

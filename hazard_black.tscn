@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqhgi5txw7g1t"]
+
+[ext_resource type="Texture2D" uid="uid://fmx2oix7cgck" path="res://hazard_to_plack.png" id="1_kjv7b"]
+[ext_resource type="PackedScene" uid="uid://ddettb5ipe5tp" path="res://hazard_area.tscn" id="2_i3uqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hk8c5"]
+size = Vector2(188, 20)
+
+[node name="HazardBlack" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture_repeat = 2
+position = Vector2(16, -16)
+texture = ExtResource("1_kjv7b")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="HazardArea" parent="." instance=ExtResource("2_i3uqx")]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
+position = Vector2(15, -9)
+shape = SubResource("RectangleShape2D_hk8c5")

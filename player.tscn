@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b54qede3iogdi"]
+[gd_scene load_steps=16 format=3 uid="uid://b54qede3iogdi"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ndxk4"]
 [ext_resource type="Texture2D" uid="uid://c4fal6whviemh" path="res://player.png" id="2_pqfju"]
@@ -85,10 +85,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d65hq"]
-size = Vector2(8, 16)
+size = Vector2(8, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxo4n"]
 size = Vector2(6, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_toiig"]
+size = Vector2(16, 14)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -104,7 +107,7 @@ animation = &"idle"
 frame_progress = 0.41806
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_d65hq")
 
 [node name="HazardDetector" type="Area2D" parent="."]
@@ -116,11 +119,27 @@ position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_hxo4n")
 debug_color = Color(0.701961, 0.231373, 0.431373, 0.419608)
 
-[node name="CoyoteJumpTimer" type="Timer" parent="."]
-wait_time = 0.15
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -30)
 position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="WallJumpTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="CheckpoinDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckpoinDetector"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_toiig")
+debug_color = Color(0.12549, 0.701961, 0.164706, 0.419608)
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
+[connection signal="area_entered" from="CheckpoinDetector" to="." method="_on_checkpoin_detector_area_entered"]

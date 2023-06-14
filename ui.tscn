@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ene4x5poeoj6"]
+[gd_scene load_steps=7 format=3 uid="uid://ene4x5poeoj6"]
 
 [ext_resource type="Script" path="res://ui.gd" id="1_76pdk"]
 [ext_resource type="FontFile" uid="uid://dwohgsrqyalmb" path="res://fonts/LcdSolid-VPzB.ttf" id="2_cmbi6"]
 [ext_resource type="Texture2D" uid="uid://c0080f3icjrp3" path="res://graphic/gem.png" id="3_uoaox"]
 [ext_resource type="Texture2D" uid="uid://bff5yowvafy7y" path="res://graphic/double-jump.png" id="4_qnr7w"]
 [ext_resource type="Texture2D" uid="uid://pbj1csxm4irn" path="res://graphic/wall-jump.png" id="5_r0r31"]
+[ext_resource type="Texture2D" uid="uid://cl7acp3w167uw" path="res://graphic/key.png" id="6_p33x3"]
 
 [node name="Container" type="Control"]
 layout_mode = 3
@@ -48,3 +49,8 @@ texture = ExtResource("4_qnr7w")
 modulate = Color(1, 1, 1, 0.196078)
 position = Vector2(302, 19)
 texture = ExtResource("5_r0r31")
+
+[node name="Key" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(261, 19)
+texture = ExtResource("6_p33x3")

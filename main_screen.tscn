@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6j47bkngkum3"]
+[gd_scene load_steps=3 format=3 uid="uid://b6j47bkngkum3"]
 
 [ext_resource type="Script" path="res://main_screen.gd" id="1_hq2wi"]
+[ext_resource type="Texture2D" uid="uid://b5vkhrdskgslt" path="res://graphic/main_title_bg.png" id="2_en4j7"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -10,9 +11,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hq2wi")
 
+[node name="MainTitleBg" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_en4j7")
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
-text = "Przygody Malinka Bambika"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Przygody Malina Bambika"

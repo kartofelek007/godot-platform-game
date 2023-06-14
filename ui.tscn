@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://ene4x5poeoj6"]
+
+[ext_resource type="Script" path="res://ui.gd" id="1_76pdk"]
+[ext_resource type="FontFile" uid="uid://dwohgsrqyalmb" path="res://fonts/LcdSolid-VPzB.ttf" id="2_cmbi6"]
+[ext_resource type="Texture2D" uid="uid://c0080f3icjrp3" path="res://graphic/gem.png" id="3_uoaox"]
+[ext_resource type="Texture2D" uid="uid://bff5yowvafy7y" path="res://graphic/double-jump.png" id="4_qnr7w"]
+[ext_resource type="Texture2D" uid="uid://pbj1csxm4irn" path="res://graphic/wall-jump.png" id="5_r0r31"]
+
+[node name="Container" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_76pdk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 27
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_cmbi6")
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/Label"]
+position = Vector2(-11, 6)
+texture = ExtResource("3_uoaox")
+region_enabled = true
+region_rect = Rect2(1, 1, 13, 11)
+
+[node name="Double-jump" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(282, 19)
+texture = ExtResource("4_qnr7w")
+
+[node name="Wall-jump" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(302, 19)
+texture = ExtResource("5_r0r31")

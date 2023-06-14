@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cb88onptlnyhr"]
 
-[ext_resource type="Texture2D" uid="uid://bm10id6djtvc" path="res://Decors.png" id="1_5andg"]
+[ext_resource type="Texture2D" uid="uid://bm10id6djtvc" path="res://graphic/Decors.png" id="1_5andg"]
 
 [node name="Tree" type="Node2D"]
 

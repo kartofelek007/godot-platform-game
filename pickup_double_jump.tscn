@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcc0aa5deqk07"]
 
 [ext_resource type="Script" path="res://pickup_double_jump.gd" id="1_7yiy0"]
-[ext_resource type="Texture2D" uid="uid://digdav71wuji6" path="res://double-jump.png" id="2_c6vdl"]
+[ext_resource type="Texture2D" uid="uid://bff5yowvafy7y" path="res://graphic/double-jump.png" id="2_ehh2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vh2a0"]
 size = Vector2(17, 17)
@@ -15,6 +15,6 @@ script = ExtResource("1_7yiy0")
 shape = SubResource("RectangleShape2D_vh2a0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_c6vdl")
+texture = ExtResource("2_ehh2d")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

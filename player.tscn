@@ -1,42 +1,42 @@
-[gd_scene load_steps=16 format=3 uid="uid://b54qede3iogdi"]
+[gd_scene load_steps=17 format=3 uid="uid://b54qede3iogdi"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ndxk4"]
-[ext_resource type="Texture2D" uid="uid://c4fal6whviemh" path="res://player.png" id="2_pqfju"]
+[ext_resource type="Texture2D" uid="uid://c4fal6whviemh" path="res://graphic/player.png" id="2_gw5oh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fp85e"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(0, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pbpqa"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(96, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kn0h7"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(24, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5aiif"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(48, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_glvt7"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(72, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68iuo"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(96, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eumgt"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(120, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3xh5"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(144, 0, 24, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vap7j"]
-atlas = ExtResource("2_pqfju")
+atlas = ExtResource("2_gw5oh")
 region = Rect2(0, 0, 24, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u7o67"]
@@ -93,6 +93,9 @@ size = Vector2(6, 14)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_toiig"]
 size = Vector2(16, 14)
 
+[sub_resource type="Gradient" id="Gradient_yrcym"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -140,6 +143,20 @@ collision_mask = 16
 position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_toiig")
 debug_color = Color(0.12549, 0.701961, 0.164706, 0.419608)
+
+[node name="StompCPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.5
+speed_scale = 2.0
+explosiveness = 1.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_yrcym")
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="area_entered" from="CheckpoinDetector" to="." method="_on_checkpoin_detector_area_entered"]

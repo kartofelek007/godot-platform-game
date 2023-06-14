@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 
 @export var SPEED = 100.0
 @export var ACCELERATION = 1000.0
@@ -8,9 +9,6 @@ extends CharacterBody2D
 @export var AIR_RESISTANCE = 200.0
 @export var AIR_ACCELERATION = 500.0
 @export var GRAVITY_SCALE = 0.8
-
-var double_jump_aquire = false
-var wall_jump_aquire = false
 
 var air_jump = false
 var just_wall_jumped = false
@@ -22,11 +20,12 @@ var coyote_jump_started = false
 @onready var coyote_jump_timer = $CoyoteJumpTimer
 @onready var respawn_position = global_position
 @onready var wall_jump_timer = $WallJumpTimer
+@onready var stomp_cpu_particles_2d = $StompCPUParticles2D
 
 func _physics_process(delta):
 	apply_gravity(delta)
 	
-	if wall_jump_aquire:
+	if GameData.playerData["wall_jump"]:
 		handle_wall_jump()
 		
 	handle_jump()
@@ -41,7 +40,7 @@ func _physics_process(delta):
 		was_wall_normal = get_wall_normal()
 	move_and_slide()
 	
-	if wall_jump_aquire:
+	if GameData.playerData["wall_jump"]:
 		var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >= 0
 		if just_left_ledge:
 			coyote_jump_timer.start()
@@ -70,26 +69,33 @@ func handle_wall_jump():
 		just_wall_jumped = true
 
 func handle_jump():
-	if double_jump_aquire:
+	if GameData.playerData["double_jump"]:
 		if is_on_floor(): air_jump = true
 	
 	if is_on_floor() or (coyote_jump_timer.time_left > 0.0 and coyote_jump_started):
 		if Input.is_action_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
-			coyote_jump_started = false
+			coyote_jump_started = false			
+			
 	elif not is_on_floor():
 		if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY / 2:
 			velocity.y = JUMP_VELOCITY / 2
 		
-		if double_jump_aquire:
+		if GameData.playerData["double_jump"]:
 			if Input.is_action_just_pressed("jump") and air_jump and not just_wall_jumped:
 				velocity.y = JUMP_VELOCITY * 0.8
 				air_jump = false
 
 func handle_acceleration(input_axis, delta):
-	if not is_on_floor(): return
-	if input_axis != 0:
+	if not is_on_floor(): 
+		stomp_cpu_particles_2d.emitting = false
+		return
+		
+	if input_axis != 0:		
 		velocity.x = move_toward(velocity.x, SPEED * input_axis, ACCELERATION * delta)
+		stomp_cpu_particles_2d.emitting = true
+	else: 
+		stomp_cpu_particles_2d.emitting = false
 
 func handle_air_acceleration(input_axis, delta):
 	if is_on_floor(): return

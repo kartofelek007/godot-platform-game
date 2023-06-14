@@ -4,6 +4,7 @@ extends MarginContainer
 @onready var quit_button = %QuitButton
 
 func _ready():
+	GameData.reset_player_data()
 	start_game_button.grab_focus()
 
 func _on_start_game_button_pressed():

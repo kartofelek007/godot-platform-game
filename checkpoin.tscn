@@ -1,8 +1,9 @@
-[gd_scene load_steps=41 format=3 uid="uid://bekchbhu6bwsc"]
+[gd_scene load_steps=42 format=3 uid="uid://bekchbhu6bwsc"]
 
 [ext_resource type="Script" path="res://checkpoin.gd" id="1_21tae"]
-[ext_resource type="Texture2D" uid="uid://c6xrqsc6cwdrp" path="res://Checkpoint (Flag Idle)(64x64).png" id="1_wx8jn"]
-[ext_resource type="Texture2D" uid="uid://bj8k0phlcfslw" path="res://Checkpoint (Flag Out) (64x64).png" id="3_ucfct"]
+[ext_resource type="Texture2D" uid="uid://c6xrqsc6cwdrp" path="res://graphic/Checkpoint (Flag Idle)(64x64).png" id="1_wx8jn"]
+[ext_resource type="Texture2D" uid="uid://bj8k0phlcfslw" path="res://graphic/Checkpoint (Flag Out) (64x64).png" id="3_ucfct"]
+[ext_resource type="Texture2D" uid="uid://ct0aqel4w3hi5" path="res://light.png" id="4_psom8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k2g5"]
 size = Vector2(19.5, 23)
@@ -283,5 +284,12 @@ z_index = 2
 sprite_frames = SubResource("SpriteFrames_f32fr")
 frame = 23
 frame_progress = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.15625, 0.15625)
+color = Color(1, 0.65098, 0.247059, 1)
+energy = 2.0
+blend_mode = 2
+texture = ExtResource("4_psom8")
 
 [connection signal="animation_finished" from="FlagOff" to="." method="_on_flag_off_animation_finished"]

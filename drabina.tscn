@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://daeasbfv7moh1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lqnpg"]
+
+[sub_resource type="GDScript" id="GDScript_w1idp"]
+script/source = "extends NinePatchRect
+
+func _on_area_2d_body_entered(body):
+	print(\"moze isc w gore\")
+	body.change_state_to_climb()
+
+func _on_area_2d_body_exited(body):
+	print(\"nie moze isc w gore\")
+	body.change_state_to_move()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d8bc"]
+size = Vector2(16, 112)
+
+[node name="Drabina" type="NinePatchRect"]
+offset_right = 16.0
+offset_bottom = 112.0
+texture = SubResource("CompressedTexture2D_lqnpg")
+region_rect = Rect2(0, 0, 16, 21)
+patch_margin_top = 6
+patch_margin_bottom = 6
+axis_stretch_vertical = 1
+script = SubResource("GDScript_w1idp")
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 56)
+shape = SubResource("RectangleShape2D_3d8bc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

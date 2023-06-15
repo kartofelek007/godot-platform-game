@@ -21,12 +21,16 @@ var coyote_jump_started = false
 @onready var respawn_position = global_position
 @onready var wall_jump_timer = $WallJumpTimer
 @onready var stomp_cpu_particles_2d = $StompCPUParticles2D
+@onready var jump_wall_cpu_particles_2d = $JumpWallCPUParticles2D
 
 func _physics_process(delta):
 	apply_gravity(delta)
 	
 	if GameData.playerData["wall_jump"]:
 		handle_wall_jump()
+	
+	if Input.is_action_just_pressed("down"):
+		position.y += 1		
 		
 	handle_jump()
 	var input_axis = Input.get_axis("left", "right")
@@ -48,10 +52,7 @@ func _physics_process(delta):
 		just_wall_jumped = false
 		var just_left_wall = was_on_wall and not is_on_wall()
 		if just_left_wall:
-			wall_jump_timer.start()
-			
-	if Input.is_action_just_pressed("down"):
-		position.y += 1	
+			wall_jump_timer.start()				
 	update_animations(input_axis)
 
 func apply_gravity(delta):
@@ -60,9 +61,13 @@ func apply_gravity(delta):
 
 func handle_wall_jump():
 	if not is_on_wall_only() and wall_jump_timer.time_left <= 0.0: return
-	var wall_normal = get_wall_normal() 
+	var wall_normal = get_wall_normal()
+	
 	if wall_jump_timer.time_left > 0.0:
 		wall_normal = was_wall_normal
+		print("hhh")
+		jump_wall_cpu_particles_2d.emitting = true 
+
 	if Input.is_action_just_pressed("jump"):
 		velocity.x = wall_normal.x * SPEED
 		velocity.y = JUMP_VELOCITY

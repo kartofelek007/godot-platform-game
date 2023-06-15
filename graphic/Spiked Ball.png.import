@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct0aqel4w3hi5"
-path="res://.godot/imported/light.png-06e94102f0cce323cff7daad56cf3030.ctex"
+uid="uid://dj2r0shgh16uf"
+path="res://.godot/imported/Spiked Ball.png-160cfa9b071bfb4d12537219f80d817c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://light.png"
-dest_files=["res://.godot/imported/light.png-06e94102f0cce323cff7daad56cf3030.ctex"]
+source_file="res://graphic/Spiked Ball.png"
+dest_files=["res://.godot/imported/Spiked Ball.png-160cfa9b071bfb4d12537219f80d817c.ctex"]
 
 [params]
 

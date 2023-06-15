@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b54qede3iogdi"]
+[gd_scene load_steps=18 format=3 uid="uid://b54qede3iogdi"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ndxk4"]
 [ext_resource type="Texture2D" uid="uid://c4fal6whviemh" path="res://graphic/player.png" id="2_gw5oh"]
@@ -96,6 +96,9 @@ size = Vector2(16, 14)
 [sub_resource type="Gradient" id="Gradient_yrcym"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="Gradient" id="Gradient_5d1he"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
@@ -157,6 +160,21 @@ initial_velocity_min = 6.0
 initial_velocity_max = 10.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_yrcym")
+
+[node name="JumpWallCPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 6.0
+initial_velocity_max = 10.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_5d1he")
 
 [connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]
 [connection signal="area_entered" from="CheckpoinDetector" to="." method="_on_checkpoin_detector_area_entered"]

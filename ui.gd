@@ -8,6 +8,7 @@ extends Control
 func _ready():
 	update_ui()
 	Events.pickup_double_jump.connect(update_ui)
+	Events.pickup_diamond.connect(update_ui)
 	Events.pickup_wall_jump.connect(update_ui)
 	Events.pickup_key.connect(update_ui)
 

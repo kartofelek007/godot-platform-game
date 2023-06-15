@@ -403,11 +403,6 @@ position = Vector2(513, 338)
 texture = ExtResource("12_6a0av")
 
 [node name="SpikeBall" parent="." index="15" instance=ExtResource("20_3atxq")]
-position = Vector2(706, 314)
-speed = 1.3
-
-[node name="SpikeBall2" parent="." index="16" instance=ExtResource("20_3atxq")]
-position = Vector2(746, 314)
-speed = 1.2
+position = Vector2(676, 374)
 
 [editable path="Checkpoints/Checkpoint4"]
